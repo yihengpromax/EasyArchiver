@@ -10,16 +10,32 @@ DESTDIR = $$PWD/build/bin
 SOURCES += \
     $$PWD/src/main.cpp \
     $$PWD/src/mainwindow.cpp \
-    $$PWD/src/SevenzipArchiver/easyarchiver.cpp
+    $$PWD/src/SevenzipArchiver/easyarchiver.cpp \
+    src/Common/resourceloader.cpp \
+    src/SevenzipArchiver/sevenzipcoreexecworker.cpp \
+    src/dialog/archiverinfodlg.cpp \
+    src/dialog/compressdlg.cpp \
+    src/dialog/extractdlg.cpp \
+    src/dialog/sevenzipcoreexecdlg.cpp
 
 HEADERS += \
     $$PWD/src/mainwindow.h \
     $$PWD/src/SevenzipArchiver/easyarchiver.h \
-    $$PWD/src/stdafx.h
+    $$PWD/src/stdafx.h \
+    src/Common/resourceloader.h \
+    src/SevenzipArchiver/sevenzipcoreexecworker.h \
+    src/dialog/archiverinfodlg.h \
+    src/dialog/compressdlg.h \
+    src/dialog/extractdlg.h \
+    src/dialog/sevenzipcoreexecdlg.h
 
 
 FORMS += \
-    $$PWD/src/mainwindow.ui
+    $$PWD/src/mainwindow.ui \
+    src/dialog/archiverinfodlg.ui \
+    src/dialog/compressdlg.ui \
+    src/dialog/extractdlg.ui \
+    src/dialog/sevenzipcoreexecdlg.ui
 
 
 # bit7z
@@ -32,7 +48,7 @@ CONFIG(debug, debug|release) {
 }
 
 # 不加上-lOleAut32 -lUser32这段 bit7z无法解析
-LIBS += -L$$DESTDIR -lOleAut32 -lUser32
+LIBS += -L$$PWD/thrid_party/bit7z/lib/x64 -lOleAut32 -lUser32
 
 
 # Default rules for deployment.
@@ -43,4 +59,3 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     res.qrc
 
-# 基于7z实现

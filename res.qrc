@@ -5,4 +5,8 @@
         <file>res/icon/info.png</file>
         <file>res/icon/sub.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>res/icon/back.png</file>
+        <file>res/app.ico</file>
+    </qresource>
 </RCC>
