@@ -2,6 +2,7 @@
 
 
 SevenZipCoreExecWorker::SevenZipCoreExecWorker(CEasyArchiver::ArchiverFunctionType type, const QString &in, const QString &out)
+    : m_iType(type)
 {
 
 }
